@@ -1,0 +1,31 @@
+name: New runbook
+description: Propose a grounded operational runbook
+title: "[Runbook]: "
+labels: [enhancement, "good first issue"]
+body:
+  - type: input
+    id: incident
+    attributes:
+      label: Incident class
+      placeholder: Redis memory saturation
+    validations:
+      required: true
+  - type: textarea
+    id: signals
+    attributes:
+      label: Observable signals
+      description: List metrics, logs or symptoms that distinguish this incident.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Evidence-first response steps
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and approval requirements
+    validations:
+      required: true

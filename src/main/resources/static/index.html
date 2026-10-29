@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SentinelOps AI — explainable multi-agent incident response for Java teams.">
+    <title>SentinelOps AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<header class="topbar">
+    <a class="brand" href="#top" aria-label="SentinelOps AI home">
+        <span class="brand-mark">S</span>
+        <span>SentinelOps <strong>AI</strong></span>
+    </a>
+    <nav>
+        <a href="#workflow">Workflow</a>
+        <a href="#analyze">Analyze</a>
+        <a href="/actuator/health">Health</a>
+        <a class="github-link" href="https://github.com/thillainirmal-tech/SentinelOps-AI">GitHub ↗</a>
+    </nav>
+</header>
+
+<main id="top">
+    <section class="hero shell">
+        <div class="hero-copy">
+            <span class="eyebrow"><i></i> Human-controlled agentic operations</span>
+            <h1>From incident signal to <span>safe action.</span></h1>
+            <p>Four explainable agents triage production incidents, retrieve the right runbook, review operational risk and build a resolution plan—without executing dangerous changes autonomously.</p>
+            <div class="hero-actions">
+                <button class="primary" id="demoButton">Run live demo <span>→</span></button>
+                <a class="secondary" href="#analyze">Analyze your incident</a>
+            </div>
+            <div class="trust-row">
+                <span>✓ No API key required</span>
+                <span>✓ Approval gates</span>
+                <span>✓ Explainable evidence</span>
+            </div>
+        </div>
+
+        <div class="signal-card" aria-label="Live incident preview">
+            <div class="signal-head">
+                <span><i class="pulse"></i> Incident intelligence</span>
+                <span class="live">LIVE</span>
+            </div>
+            <div class="metric-grid">
+                <div><small>Severity</small><strong class="critical">CRITICAL</strong></div>
+                <div><small>Confidence</small><strong>94%</strong></div>
+                <div><small>Runbook</small><strong>HTTP 5xx</strong></div>
+                <div><small>Approval</small><strong class="review">REQUIRED</strong></div>
+            </div>
+            <div class="trace">
+                <span style="--w:92%"></span>
+                <span style="--w:68%"></span>
+                <span style="--w:84%"></span>
+                <span style="--w:48%"></span>
+            </div>
+            <p class="terminal"><b>$</b> evidence collected · action blocked pending human review</p>
+        </div>
+    </section>
+
+    <section class="shell workflow-section" id="workflow">
+        <div class="section-heading">
+            <span class="eyebrow"><i></i> Agent workflow</span>
+            <h2>Specialized agents. One auditable decision trail.</h2>
+        </div>
+        <div class="agent-grid">
+            <article><span>01</span><div class="agent-icon">T</div><h3>Triage Agent</h3><p>Scores operational signals and assigns severity with explicit evidence.</p></article>
+            <article><span>02</span><div class="agent-icon">R</div><h3>Retrieval Agent</h3><p>Uses cosine similarity to ground the response in a curated runbook.</p></article>
+            <article><span>03</span><div class="agent-icon">S</div><h3>Safety Agent</h3><p>Classifies proposed tools and blocks dangerous production changes.</p></article>
+            <article><span>04</span><div class="agent-icon">P</div><h3>Planning Agent</h3><p>Produces an evidence-first plan operators can inspect and approve.</p></article>
+        </div>
+    </section>
+
+    <section class="analyze-section" id="analyze">
+        <div class="shell analyze-grid">
+            <div>
+                <span class="eyebrow"><i></i> Interactive console</span>
+                <h2>Describe what is breaking.</h2>
+                <p>SentinelOps converts a raw incident report into a grounded response plan. Commands are templates, not automatically executed.</p>
+                <form id="incidentForm">
+                    <label>Incident title<input id="title" name="title" maxlength="120" required placeholder="Checkout API returning HTTP 503"></label>
+                    <label>Affected service<input id="service" name="service" maxlength="80" placeholder="checkout-service"></label>
+                    <label>Observed symptoms<textarea id="description" name="description" maxlength="4000" required rows="5" placeholder="All users are receiving 503 responses after the latest deployment..."></textarea></label>
+                    <button class="primary wide" type="submit">Analyze incident <span>→</span></button>
+                </form>
+            </div>
+            <div class="result-panel" id="resultPanel">
+                <div class="empty-state" id="emptyState">
+                    <div class="radar"><i></i><i></i><i></i></div>
+                    <h3>Waiting for a signal</h3>
+                    <p>Run the demo or submit an incident to see the agent trace.</p>
+                </div>
+                <div id="result" hidden></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shell principles">
+        <div><strong>Grounded</strong><span>Runbooks are the source of operational truth.</span></div>
+        <div><strong>Deterministic</strong><span>Demo mode is testable and requires no external model.</span></div>
+        <div><strong>Safe by design</strong><span>Production-changing tools remain human controlled.</span></div>
+        <div><strong>Observable</strong><span>Health and Prometheus metrics ship out of the box.</span></div>
+    </section>
+</main>
+
+<footer><div class="shell"><span>Built with Java 17 · Spring Boot · Human judgment</span><span>Apache-2.0</span></div></footer>
+<script src="/app.js" defer></script>
+</body>
+</html>
